@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utb-devops-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: utb-devops-demo
+  template:
+    metadata:
+      labels:
+        app: utb-devops-demo
+    spec:
+      containers:
+        - name: utb-devops-demo
+          image: docker.io/nolartes12/utb-devops-demo:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "500m"
