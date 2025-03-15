@@ -2,7 +2,7 @@ provider "kubernetes" {
   config_path = "~/.kube/config"
 }
 
-resource "kubernetes_deployment" "ms_practice_mentoring_backend" {
+resource "kubernetes_deployment" "utb-devops-demo" {
   metadata {
     name = "utb-devops-demo"
     labels = {
