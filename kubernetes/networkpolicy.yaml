@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: utb-devops-demo-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: utb-devops-demo
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: default
+      ports:
+        - protocol: TCP
+          port: 8080
+  policyTypes:
+    - Ingress
